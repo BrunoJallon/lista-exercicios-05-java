@@ -4,7 +4,7 @@
 
 A partir do **Java 8** ficou possível criar métodos com corpo dentro de interfaces, usando `default` e `static`.
 
-O método `default` serve para adicionar um método novo em uma interface sem quebrar as classes que já implementam ela. Antes do Java 8, se um método fosse adicionado em uma interface, todas as classes que a implementavam davam erro de compilação até implementarem esse método. Com o `default`, as classes já recebem uma implementação pronta e só sobrescrevem se precisarem de um comportamento diferente. Foi assim que o próprio Java 8 adicionou o `forEach` em todas as coleções sem quebrar o código que já existia.
+O método `default` serve para adicionar um método novo em uma interface sem quebrar as classes que já a implementam. Antes do Java 8, se um método fosse adicionado em uma interface, todas as classes que a implementavam davam erro de compilação até implementarem esse método. Com o `default`, as classes já recebem uma implementação pronta e só sobrescrevem se precisarem de um comportamento diferente. Foi assim que o próprio Java 8 adicionou o `forEach` em todas as coleções sem quebrar o código que já existia.
 
 O método `static` serve para colocar métodos auxiliares dentro da própria interface, sem precisar criar uma classe separada só para eles. Ele pertence à interface, é chamado pelo nome dela (por exemplo, `List.of(1, 2, 3)`) e não é herdado pelas classes que implementam a interface.
 
@@ -71,5 +71,5 @@ A classe `Estoque` só conhece a interface `Armazenamento`. Para trocar o arquiv
 O código está na pasta `src` (Java 25, com `void main()` igual à lista 04).
 
 - **Questão 3** (`Questao3.java` e `questao3/model`): o `Smartphone` implementa as três interfaces. No `main`, o mesmo objeto é usado como navegador, reprodutor de música e telefone. Fazer ou atender uma ligação pausa a música, se ela estiver tocando.
-- **Questão 4** (`Questao4.java` e `questao4/model`): cada operação é uma expressão lambda que implementa o método `executar(a, b)`. Como os valores são `double`, dividir por 0 não dá erro: por exemplo, `10 / 0` resulta em `Infinity`.
+- **Questão 4** (`Questao4.java` e `questao4/model`): cada operação é uma expressão lambda que implementa o método `executar(a, b)`. Como os valores são `double`, dividir por 0 não dá erro: `divisao.executar(10, 0)` retorna `Infinity`. Com `int` seria diferente, porque `10 / 0` lança uma `ArithmeticException`.
 - **Questão 5** (`Questao5.java` e `questao5/model`): usei polimorfismo em vez de `instanceof`. O `Contrato` usa o `processar()` padrão de `Imprimivel`, que só imprime, e o `RelatorioFinanceiro` sobrescreve para imprimir e enviar por e-mail. Assim o `main` só chama `documento.processar()` e não precisa testar o tipo de cada documento. Se surgir um novo tipo de documento, o `main` continua igual.
